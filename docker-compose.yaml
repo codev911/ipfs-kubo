@@ -4,8 +4,8 @@ services:
         container_name: ipfs_host
         restart: always
         volumes:
-            - /home/codev/ipfs/export:/export
-            - /home/codev/ipfs/data:/data/ipfs
+            - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
+            - /home/codev/ipfs/data:/data/ipfs # replace /home/codev/ipfs/data with your own directory
         ports:
             - 4001:4001
             - 4001:4001/udp
