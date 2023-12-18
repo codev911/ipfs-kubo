@@ -3,6 +3,8 @@ services:
   kubo:
     container_name: ipfs_host
     restart: always
+    command: 
+      - rm -rf /home/codev/ipfs # replace /home/codev/ipfs with your own directory
     # entrypoint: [
     #   "ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '*'",
     #   "&&",
