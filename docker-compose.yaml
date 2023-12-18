@@ -1,18 +1,18 @@
 name: IPFS Kubo
 services:
-    kubo:
-        container_name: ipfs_host
-        restart: always
-        volumes:
-            - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
-            - /home/codev/ipfs/data:/data/ipfs # replace /home/codev/ipfs/data with your own directory
-        ports:
-            - 4001:4001
-            - 4001:4001/udp
-            - 0.0.0.0:8080:8080
-            - 0.0.0.0:5001:5001
-        expose:
-          # - "4001"
-          - "5001"
-          - "8080"
-        image: ipfs/kubo:latest
+  kubo:
+    container_name: ipfs_host
+    restart: always
+    volumes:
+      - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
+      - /home/codev/ipfs/data:/data/ipfs # replace /home/codev/ipfs/data with your own directory
+    ports:
+      - 4001:4001
+      - 4001:4001/udp
+      - 0.0.0.0:8080:8080
+      - 0.0.0.0:5001:5001
+    expose:
+      # - "4001"
+      - "5001"
+      - "8080"
+    image: ipfs/kubo:latest
