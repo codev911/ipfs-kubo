@@ -1,0 +1,13 @@
+name: IPFS Kubo
+services:
+    kubo:
+        container_name: ipfs_host
+        volumes:
+            - ${IPFS_EXPORT_PATH}:/export
+            - ${IPFS_DATA_PATH}:/data/ipfs
+        ports:
+            - 4001:4001
+            - 4001:4001/udp
+            - 127.0.0.1:8080:8080
+            - 127.0.0.1:5001:5001
+        image: ipfs/kubo:latest
