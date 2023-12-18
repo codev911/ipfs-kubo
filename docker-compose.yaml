@@ -3,6 +3,9 @@ services:
   kubo:
     container_name: ipfs_host
     restart: always
+    command: 
+      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '*'
+      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
     volumes:
       - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
       - /home/codev/ipfs/data:/data/ipfs # replace /home/codev/ipfs/data with your own directory
