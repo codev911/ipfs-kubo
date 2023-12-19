@@ -16,8 +16,7 @@ services:
       - "4001"
       - "5001"
       - "8080"
-    command: [
-      "config","show"
+    entrypoint: [
+      "config","--json","API.HTTPHeaders.Access-Control-Allow-Origin","'[\"*\"]'","&&",
+      "config","--json","API.HTTPHeaders.Access-Control-Allow-Methods","'[\"PUT\",\"POST\"]'"
     ]
-      # - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
-      # - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
