@@ -5,11 +5,9 @@ services:
     restart: always
     # command: 
     #   - rm -rf /home/codev/ipfs # replace /home/codev/ipfs with your own directory
-    # entrypoint: [
-    #   "ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '*'",
-    #   "&&",
-    #   "ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '*'"
-    # ]
+    entrypoint: 
+      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin ['*']
+      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods ['*']
     volumes:
       - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
       - /home/codev/ipfs/data:/data/ipfs # replace /home/codev/ipfs/data with your own directory
