@@ -17,5 +17,6 @@ services:
       - "5001"
       - "8080"
     command: 
-      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin ['*']
-      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods ['*']
+      - cat /data/ipfs/config
+      # - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
+      # - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
