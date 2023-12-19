@@ -1,13 +1,9 @@
 name: IPFS Kubo
 services:
   kubo:
+    image: ipfs/kubo:latest
     container_name: ipfs_host
     restart: always
-    # command: 
-    #   - rm -rf /home/codev/ipfs # replace /home/codev/ipfs with your own directory
-    entrypoint: 
-      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin ['*']
-      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods ['*']
     volumes:
       - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
       - /home/codev/ipfs/data:/data/ipfs # replace /home/codev/ipfs/data with your own directory
@@ -20,4 +16,6 @@ services:
       - "4001"
       - "5001"
       - "8080"
-    image: ipfs/kubo:latest
+    command: 
+      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin ['*']
+      - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods ['*']
