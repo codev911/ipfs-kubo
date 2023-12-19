@@ -2,4 +2,4 @@
 FROM ubuntu:jammy
 
 # run download ipfs
-RUN bash ipfs-download.sh
+RUN bash ./ipfs-download.sh
