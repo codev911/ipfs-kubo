@@ -17,6 +17,6 @@ services:
       - "5001"
       - "8080"
     command: [
-      "config","--json","API.HTTPHeaders.Access-Control-Allow-Origin","'*'","&&",
-      "config","--json","API.HTTPHeaders.Access-Control-Allow-Methods","'*'"
+      "config","--json","API.HTTPHeaders.Access-Control-Allow-Origin","['*']","&&",
+      "config","--json","API.HTTPHeaders.Access-Control-Allow-Methods","['PUT','POST']"
     ]
