@@ -17,6 +17,5 @@ services:
       - "5001"
       - "8080"
     command: 
-      - cat /data/ipfs/config
-      # - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
-      # - ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
+      - docker run ipfs_host config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
+      - docker run ipfs_host config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
