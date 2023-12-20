@@ -4,7 +4,7 @@ services:
     image: ipfs/kubo:latest
     container_name: ipfs_host
     networks:
-      - ipfskubos
+      - kubo
     restart: always
     volumes:
       - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
@@ -23,5 +23,6 @@ services:
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
 networks:
-  ipfskubos:
-    driver: bridge
+  kubo:
+    name: ipfs_host
+    external: true
