@@ -22,6 +22,6 @@ services:
     #   - config profile server
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
-  networks:
-    ipfskubos:
-      driver: bridge
+networks:
+  ipfskubos:
+    driver: bridge
