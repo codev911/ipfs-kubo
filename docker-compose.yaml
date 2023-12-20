@@ -1,13 +1,10 @@
 name: IPFS Kubo
-networks:
-  ipfskubo:
-    driver: bridge
 services:
   kubo:
     image: ipfs/kubo:latest
     container_name: ipfs_host
     networks:
-      - ipfskubo
+      - ipfskubos
     restart: always
     volumes:
       - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
@@ -25,3 +22,6 @@ services:
     #   - config profile server
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
+  networks:
+    ipfskubos:
+      driver: bridge
