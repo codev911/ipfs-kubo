@@ -1,7 +1,4 @@
 name: IPFS Kubo
-networks:
-  ipfskubo:
-    driver: bridge
 services:
   kubo:
     image: ipfs/kubo:latest
@@ -25,3 +22,5 @@ services:
     #   - config profile server
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
+  networks:
+    ipfskubo: {}
