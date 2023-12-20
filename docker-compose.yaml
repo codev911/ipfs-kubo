@@ -23,4 +23,5 @@ services:
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
   networks:
-    ipfskubo: {}
+    ipfskubo:
+      external: true
