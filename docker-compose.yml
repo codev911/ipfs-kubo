@@ -18,7 +18,8 @@ services:
       - "4001"
       - "5001"
       - "8080"
-    # command: 
+    command: >
+        config Routing.Type dhtserver
     #   - config --json Discovery.MDNS
     #   - config profile apply server
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
