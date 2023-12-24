@@ -1,0 +1,7 @@
+{
+  "name": "ipfs-kubo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "codev911 <codev911@gmail.com>",
+  "license": "MIT"
+}
