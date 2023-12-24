@@ -18,8 +18,8 @@ services:
       - "4001"
       - "5001"
       - "8080"
-    command: >
-      config profile server
+    # command:
+    #   - config profile server
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
     #   - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
 networks:
