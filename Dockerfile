@@ -2,4 +2,4 @@
 FROM node:lts-alpine
 
 # Run install kubo
-RUN yarn add -g kubo
+RUN yarn add kubo
