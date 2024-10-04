@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  kubo:
+  app:
     environment:
       IPFS_PROFILE: server
       IPFS_ENABLE_RELAY: true
