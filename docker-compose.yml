@@ -18,7 +18,7 @@ services:
     restart: always
     networks:
       - ipfs
-    entrypoint: "/bin/sh -c 'ipfs init && /scripts/configure_ipfs.sh && ipfs daemon'"
+    entrypoint: "/bin/sh -c 'ipfs init && ./scripts/configure_ipfs.sh && ipfs daemon'"
     volumes:
       - /home/codev/ipfs/export:/export   # replace /home/codev/ipfs/export with your own directory
       - /home/codev/ipfs/data:/data/ipfs  # replace /home/codev/ipfs/data with your own directory
