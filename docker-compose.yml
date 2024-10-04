@@ -6,7 +6,7 @@ services:
       IPFS_PROFILE: server
       IPFS_ENABLE_RELAY: true
       IPFS_AUTO_RELAY: true
-      IPFS_DISABLE_GC: true
+      # IPFS_DISABLE_GC: true
     image: ipfs/kubo:latest
     container_name: ipfs_host
     networks:
