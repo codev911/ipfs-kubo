@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 
-# Ensure IPFS is initialized (if not already)
+# Periksa apakah IPFS sudah diinisialisasi sebelumnya
 if [ ! -f /data/ipfs/config ]; then
+  echo "Initializing IPFS for the first time..."
   ipfs init
+else
+  echo "IPFS is already initialized, skipping init."
 fi
 
 # Update IPFS configuration
