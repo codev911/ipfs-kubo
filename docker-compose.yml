@@ -20,7 +20,7 @@ services:
       - "4001:4001/udp"
       - "8080:8080"
       - "5001:5001"
-    entrypoint: entrypoint.sh
+    entrypoint: /entrypoint.sh
 networks:
   kubo:
     name: kubo
