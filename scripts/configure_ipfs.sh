@@ -6,9 +6,9 @@ if [ ! -f /data/ipfs/config ]; then
 fi
 
 # Memperbarui konfigurasi IPFS
-ipfs config --json Swarm.ConnMgr.LowWater 20
-ipfs config --json Swarm.ConnMgr.HighWater 40
-ipfs config Swarm.ConnMgr.GracePeriod "20s"
+# ipfs config --json Swarm.ConnMgr.LowWater 20
+# ipfs config --json Swarm.ConnMgr.HighWater 40
+# ipfs config Swarm.ConnMgr.GracePeriod "20s"
 
 # Mengaktifkan AutoRelay dan menonaktifkan Relay Hop
 ipfs config --json Swarm.EnableAutoRelay true

@@ -8,4 +8,4 @@ COPY ./scripts/configure_ipfs.sh /scripts/configure_ipfs.sh
 RUN chmod +x /scripts/configure_ipfs.sh
 
 # Menentukan entrypoint untuk menjalankan script konfigurasi dan daemon IPFS
-ENTRYPOINT ["/bin/sh", "-c", "sh /scripts/configure_ipfs.sh && ipfs daemon --migrate=true --enable-gc"]
+ENTRYPOINT ["/bin/sh", "-c", "sh /scripts/configure_ipfs.sh && ipfs daemon --migrate=true"]
