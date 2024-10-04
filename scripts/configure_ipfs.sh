@@ -17,5 +17,7 @@ ipfs config --json Swarm.EnableRelayHop false
 # Menonaktifkan DHT (agar node tidak mengunduh dari node lain)
 ipfs config Routing.Type none
 
-# Menonaktifkan garbage collection sepenuhnya dengan string
-ipfs config --json Datastore.GCPeriod "0s"  # Mengubah "0" menjadi "0s"
+# Menonaktifkan garbage collection sepenuhnya
+ipfs config Datastore.GCPeriod "0" # Menggunakan "0" (string) 
+# Jika tidak berhasil, coba juga menggunakan nilai -1
+# ipfs config Datastore.GCPeriod "-1"  # Coba ini jika sebelumnya tidak berhasil
