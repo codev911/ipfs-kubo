@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
 # Pastikan IPFS diinisialisasi (jika belum ada)
-# if [ ! -f /data/ipfs/config ]; then
-#   ipfs init
-# fi
+if [ ! -f /data/ipfs/config ]; then
+  ipfs init
+fi
 
 # Memperbarui konfigurasi IPFS
-# ipfs config --json Swarm.ConnMgr.LowWater 20
-# ipfs config --json Swarm.ConnMgr.HighWater 40
-# ipfs config Swarm.ConnMgr.GracePeriod "20s"
+ipfs config --json Swarm.ConnMgr.LowWater 20
+ipfs config --json Swarm.ConnMgr.HighWater 40
+ipfs config Swarm.ConnMgr.GracePeriod "20s"
 
-# Configurasi cors
+# Konfigurasi CORS untuk API
 ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
 ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'
 
@@ -22,6 +22,4 @@ ipfs config --json Swarm.EnableRelayHop false
 ipfs config Routing.Type none
 
 # Menonaktifkan garbage collection sepenuhnya
-# ipfs config Datastore.GCPeriod "0" # Menggunakan "0" (string) 
-# Jika tidak berhasil, coba juga menggunakan nilai -1
-# ipfs config Datastore.GCPeriod "-1"  # Coba ini jika sebelumnya tidak berhasil
+ipfs config Datastore.GCPeriod "-1"  # Menggunakan "-1" sebagai nilai
