@@ -6,18 +6,23 @@ services:
     ports:
       - 4001:4001             # Swarm
       - 4001:4001/udp         # Swarm UDP
-      - 0.0.0.0:8080:8080     # Gateway access (private, optional)
-      - 0.0.0.0:5001:5001     # API
+      - 127.0.0.1:8080:8080   # Gateway access (private, optional)
+      - 5001:5001             # API
     environment:
       IPFS_PROFILE: server
-    volumes:
-      - /home/codev/ipfs_data:/data/ipfs   # Volume untuk data IPFS
-      - /home/codev/scripts:/scripts       # Volume untuk skrip konfigurasi
-    entrypoint: /bin/sh
-    command: -c 'ls /scripts && sh /scripts/configure_ipfs.sh && ipfs daemon --migrate=true --enable-gc'
+    command: [
+      daemon,
+      --migrate=true,
+      --enable-gc
+    ]
     restart: always
     networks:
       - ipfs
+    entrypoint: "/bin/sh -c '/scripts/configure_ipfs.sh && ipfs daemon'"
+    volumes:
+      - /home/codev/ipfs/export:/export   # replace /home/codev/ipfs/export with your own directory
+      - /home/codev/ipfs/data:/data/ipfs  # replace /home/codev/ipfs/data with your own directory
+      - /home/codev/ipfs/scripts:/scripts # replace /home/codev/ipfs/scripts with your own directory
 networks:
   ipfs:
     name: ipfs
