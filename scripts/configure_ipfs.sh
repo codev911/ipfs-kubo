@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-# Pastikan IPFS diinisialisasi (jika belum ada)
-if [ ! -f /data/ipfs/config ]; then
-  ipfs init
-fi
+# # Pastikan IPFS diinisialisasi (jika belum ada)
+# if [ ! -f /data/ipfs/config ]; then
+#   ipfs init
+# fi
 
 # # Memperbarui konfigurasi IPFS
 # ipfs config --json Swarm.ConnMgr.LowWater 20
