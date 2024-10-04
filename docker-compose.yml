@@ -1,14 +1,8 @@
-name: IPFS Kubo
+version: '3.7'
 services:
-  kubo:
-    image: ipfs/kubo:latest
-    container_name: ipfs_host
-    networks:
-      - kubo
-    restart: always
-    volumes:
-      - /home/codev/ipfs/export:/export # replace /home/codev/ipfs/export with your own directory
-      - /home/codev/ipfs/data:/data/ipfs # replace /home/codev/ipfs/data with your own directory
+  app:
+    build: .
+    container_name: ipfs_node
     ports:
       - 4001:4001
       - 4001:4001/udp
@@ -18,14 +12,8 @@ services:
       - "4001"
       - "5001"
       - "8080"
-    # command: 
-    #   - config Routing.Type dhtserver
-    #   - config --json Discovery.MDNS
-    #   - config profile apply server
-    #   - config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
-    #   - config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT","POST"]'
-networks:
-  kubo:
-    name: kubo
-    driver: bridge
-    external: true
+    environment:
+      IPFS_PROFILE: server
+    volumes:
+      - /home/codev/ipfs_data:/data/ipfs
+    restart: always
