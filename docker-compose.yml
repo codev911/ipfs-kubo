@@ -16,11 +16,11 @@ services:
       - "8080:8080"
       - "5001:5001"
     command: >
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]' && \
-      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]' && \
-      ipfs config --json Swarm.EnableRelayHop false && \
-      ipfs config --json Swarm.EnableAutoRelay true && \
-      ipfs daemon"
+      config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]' && \
+      config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]' && \
+      config --json Swarm.EnableRelayHop false && \
+      config --json Swarm.EnableAutoRelay true && \
+      daemon"
 
 networks:
   kubo:
