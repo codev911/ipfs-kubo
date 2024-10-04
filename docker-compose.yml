@@ -4,10 +4,10 @@ services:
     image: ipfs/kubo:latest
     container_name: ipfs_node
     ports:
-      - 4001:4001             # Swarm
-      - 4001:4001/udp         # Swarm UDP
-      - 127.0.0.1:8080:8080   # Gateway access (private, optional)
-      - 5001:5001             # API
+      - 4001:4001         # Swarm
+      - 4001:4001/udp     # Swarm UDP
+      - 0.0.0.0:8080:8080 # Gateway access (private, optional)
+      - 0.0.0.0:5001:5001 # API
     environment:
       IPFS_PROFILE: server
     command: [
