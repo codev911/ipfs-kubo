@@ -1,25 +1,19 @@
-name: IPFS Kubo
+version: '3.7'
 services:
-  kubo:
-    image: ipfs/kubo:latest
-    container_name: ipfs_host
-    networks:
-      - kubo
-    restart: always
-    volumes:
-      - /home/codev/ipfs/export:/export
-      - /home/codev/ipfs/data:/data/ipfs
+  app:
+    build: .
+    container_name: ipfs_node
     ports:
       - 4001:4001
       - 4001:4001/udp
-      - 0.0.0.0:8080:8080
-      - 0.0.0.0:5001:5001
+      - 8080:8080
+      - 5001:5001
     expose:
       - "4001"
       - "5001"
       - "8080"
-networks:
-  kubo:
-    name: kubo
-    driver: bridge
-    external: true
+    environment:
+      IPFS_PROFILE: server
+    volumes:
+      - /home/codev/ipfs_data:/data/ipfs
+    restart: always
