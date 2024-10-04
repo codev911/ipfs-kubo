@@ -1,12 +1,6 @@
-version: '3.8'
-
+name: IPFS Kubo
 services:
   kubo:
-    environment:
-      IPFS_PROFILE: server
-      IPFS_ENABLE_RELAY: true
-      IPFS_AUTO_RELAY: true
-      IPFS_DISABLE_GC: true
     image: ipfs/kubo:latest
     container_name: ipfs_host
     networks:
@@ -16,11 +10,14 @@ services:
       - /home/codev/ipfs/export:/export
       - /home/codev/ipfs/data:/data/ipfs
     ports:
-      - "4001:4001"
-      - "4001:4001/udp"
-      - "0.0.0.0:8080:8080"
-      - "0.0.0.0:5001:5001"
-    build: .
+      - 4001:4001
+      - 4001:4001/udp
+      - 0.0.0.0:8080:8080
+      - 0.0.0.0:5001:5001
+    expose:
+      - "4001"
+      - "5001"
+      - "8080"
 networks:
   kubo:
     name: kubo
