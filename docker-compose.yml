@@ -15,7 +15,7 @@ services:
       - /home/codev/ipfs/data:/data/ipfs  # replace /home/codev/ipfs/data with your own directory
       - /home/codev/ipfs/scripts:/scripts # replace /home/codev/ipfs/scripts with your own directory
     entrypoint: /bin/sh
-    command: -c 'ls /scripts && sh /scripts/configure_ipfs.sh && ipfs daemon --migrate=true --enable-gc'
+    command: -c 'ls && sh /scripts/configure_ipfs.sh && ipfs daemon --migrate=true --enable-gc'
     restart: always
     networks:
       - ipfs
