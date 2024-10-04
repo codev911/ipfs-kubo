@@ -4,16 +4,16 @@ services:
     image: ipfs/kubo:latest
     container_name: ipfs_node
     ports:
-      - 4001:4001             # Swarm
-      - 4001:4001/udp         # Swarm UDP
-      - 0.0.0.0:8080:8080     # Gateway access (private, optional)
-      - 0.0.0.0:5001:5001     # API
+      - "4001:4001"           # Swarm TCP
+      - "4001:4001/udp"       # Swarm UDP
+      - "0.0.0.0:8080:8080"   # Gateway access (public, optional)
+      - "0.0.0.0:5001:5001"   # API
     environment:
       IPFS_PROFILE: server
     command: [
-      daemon,
-      --migrate=true,
-      --enable-gc
+      "daemon",
+      "--migrate=true",
+      "--enable-gc"
     ]
     restart: always
     networks:
@@ -22,9 +22,8 @@ services:
     volumes:
       - ./ipfs_data:/data/ipfs
       - ./scripts:/scripts
-      - ./ipfs_data:/data/ipfs
 networks:
   ipfs:
     name: ipfs
     driver: bridge
-    external: true
+    external: true   # Pastikan network 'ipfs' sudah dibuat secara eksternal atau hapus baris ini jika tidak diperlukan
