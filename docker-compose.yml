@@ -7,9 +7,6 @@ services:
       IPFS_ENABLE_RELAY: true
       IPFS_AUTO_RELAY: true
       IPFS_DISABLE_GC: true
-    container_name: ipfs_host
-    networks:
-      - kubo
     restart: always
     volumes:
       - /home/codev/ipfs/export:/export
@@ -20,8 +17,3 @@ services:
       - "8080:8080"
       - "5001:5001"
     build: .
-networks:
-  kubo:
-    name: kubo
-    driver: bridge
-    external: true
