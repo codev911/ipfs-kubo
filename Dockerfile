@@ -20,7 +20,10 @@ RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 # Ekspose port yang diperlukan
-EXPOSE 4001 4001/udp 8080 5001
+EXPOSE 4001
+EXPOSE 4001/udp
+EXPOSE 8080
+EXPOSE 5001
 
 # Deklarasikan volume yang digunakan
 VOLUME ["/data/ipfs", "/export"]
