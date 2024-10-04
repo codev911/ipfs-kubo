@@ -15,6 +15,13 @@ services:
       - "4001:4001/udp"
       - "8080:8080"
       - "5001:5001"
+    command: >
+      /bin/sh -c "sleep 5 && \
+      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]' && \
+      ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]' && \
+      ipfs config --json Swarm.EnableRelayHop false && \
+      ipfs config --json Swarm.EnableAutoRelay true && \
+      ipfs daemon"
 
 networks:
   kubo:
