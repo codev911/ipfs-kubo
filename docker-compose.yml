@@ -18,9 +18,9 @@ services:
     ports:
       - "4001:4001"
       - "4001:4001/udp"
-      - "0.0.0.0:8080:8080"
-      - "0.0.0.0:5001:5001"
-    build: .
+      - "8080:8080"
+      - "5001:5001"
+    # entrypoint: entrypoint.sh
 networks:
   kubo:
     name: kubo
