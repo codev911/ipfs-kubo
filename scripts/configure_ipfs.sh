@@ -1,27 +1,21 @@
 #!/usr/bin/env bash
 
-# Periksa apakah IPFS sudah diinisialisasi sebelumnya
+# Pastikan IPFS diinisialisasi (jika belum ada)
 if [ ! -f /data/ipfs/config ]; then
-  echo "Initializing IPFS for the first time..."
   ipfs init
-else
-  echo "IPFS is already initialized, skipping init."
 fi
 
-# Update IPFS configuration
+# Memperbarui konfigurasi IPFS
 ipfs config --json Swarm.ConnMgr.LowWater 20
 ipfs config --json Swarm.ConnMgr.HighWater 40
 ipfs config Swarm.ConnMgr.GracePeriod "20s"
 
-# Enable AutoRelay and disable Relay Hop
+# Mengaktifkan AutoRelay dan menonaktifkan Relay Hop
 ipfs config --json Swarm.EnableAutoRelay true
 ipfs config --json Swarm.EnableRelayHop false
 
-# Disable the DHT (so the node doesn't download from other nodes)
+# Menonaktifkan DHT (agar node tidak mengunduh dari node lain)
 ipfs config Routing.Type none
 
-# Optionally, set up API to only accept requests from localhost (security)
-# ipfs config Addresses.API /ip4/127.0.0.1/tcp/5001
-
-# Disable garbage collection entirely
-ipfs config --json Datastore.GCPeriod "0"
+# Menonaktifkan garbage collection sepenuhnya dengan string
+ipfs config --json Datastore.GCPeriod "0s"  # Mengubah "0" menjadi "0s"
