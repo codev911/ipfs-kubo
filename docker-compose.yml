@@ -11,8 +11,8 @@ services:
     environment:
       IPFS_PROFILE: server
     volumes:
-      - ./ipfs_data:/data/ipfs
-      - ./scripts:/scripts
+      - ./ipfs_data:/data/ipfs   # Volume untuk data IPFS
+      - ./scripts:/scripts       # Volume untuk skrip konfigurasi
     entrypoint: /bin/sh
     command: -c 'sh /scripts/configure_ipfs.sh && ipfs daemon --migrate=true --enable-gc'
     restart: always
