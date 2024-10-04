@@ -18,7 +18,7 @@ services:
       - "4001"
       - "5001"
       - "8080"
-    entrypoint: -c '/scripts/configure_ipfs.sh'
+    entrypoint: /bin/sh -c '/scripts/configure_ipfs.sh'
 networks:
   kubo:
     name: kubo
