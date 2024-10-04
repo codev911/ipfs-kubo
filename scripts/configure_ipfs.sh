@@ -18,6 +18,6 @@ ipfs config --json Swarm.EnableRelayHop false
 ipfs config Routing.Type none
 
 # Menonaktifkan garbage collection sepenuhnya
-ipfs config Datastore.GCPeriod "0" # Menggunakan "0" (string) 
+# ipfs config Datastore.GCPeriod "0" # Menggunakan "0" (string) 
 # Jika tidak berhasil, coba juga menggunakan nilai -1
 # ipfs config Datastore.GCPeriod "-1"  # Coba ini jika sebelumnya tidak berhasil
