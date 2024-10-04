@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Pastikan IPFS diinisialisasi (jika belum ada)
+#`` Pastikan IPFS diinisialisasi (jika belum ada)
 if [ ! -f /data/ipfs/config ]; then
   ipfs init
 fi
