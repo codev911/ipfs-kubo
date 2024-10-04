@@ -11,5 +11,5 @@ services:
     environment:
       IPFS_PROFILE: server
     volumes:
-      - ./ipfs_data:/data/ipfs     # Volume untuk data IPFS
+      - /home/codev/ipfs_data:/data/ipfs     # Volume untuk data IPFS
     restart: always
