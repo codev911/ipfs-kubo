@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   kubo:
+    environment:
+      IPFS_PROFILE: server
     image: ipfs/kubo:latest
     container_name: ipfs_host
     networks:
