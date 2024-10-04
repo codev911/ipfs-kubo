@@ -15,12 +15,12 @@ services:
       - "4001:4001/udp"
       - "8080:8080"
       - "5001:5001"
-    command: >
-      config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]' && \
-      config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]' && \
-      config --json Swarm.EnableRelayHop false && \
-      config --json Swarm.EnableAutoRelay true && \
-      daemon"
+    # command: >
+    #   config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]' && \
+    #   config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]' && \
+    #   config --json Swarm.EnableRelayHop false && \
+    #   config --json Swarm.EnableAutoRelay true && \
+    #   daemon"
 
 networks:
   kubo:
