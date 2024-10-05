@@ -14,6 +14,8 @@ services:
       - "8080"
     environment:
       IPFS_PROFILE: server
+      IPFS_ENABLE_RELAY: true
+      IPFS_AUTO_RELAY: true
     volumes:
       - /home/codev/ipfs_data:/data/ipfs
     restart: always
