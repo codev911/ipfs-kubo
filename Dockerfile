@@ -1,11 +1,19 @@
-# Menggunakan image IPFS Kubo terbaru
+# Gunakan image dasar dari IPFS Kubo
 FROM ipfs/kubo:latest
 
-# Menyalin configure_ipfs.sh ke dalam kontainer
-COPY ./scripts/configure_ipfs.sh /scripts/configure_ipfs.sh
+# Set environment variables
+ENV IPFS_PROFILE=server
+ENV IPFS_ENABLE_RELAY=true
+ENV IPFS_AUTO_RELAY=true
 
-# Memberikan izin eksekusi pada script
-RUN chmod +x /scripts/configure_ipfs.sh
+# Salin entrypoint.sh ke dalam container
+COPY entrypoint.sh /entrypoint.sh
 
-# Menentukan entrypoint untuk menjalankan script konfigurasi dan daemon IPFS
-ENTRYPOINT ["/bin/sh", "-c", "sh /scripts/configure_ipfs.sh && ipfs daemon --migrate=true"]
+# Berikan hak akses eksekusi pada skrip
+RUN chmod +x /entrypoint.sh
+
+# Tentukan skrip sebagai entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
+
+# Deklarasikan volume yang digunakan
+VOLUME ["/data/ipfs", "/export"]
