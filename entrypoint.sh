@@ -4,6 +4,9 @@ if [ ! -f /data/ipfs/config ]; then
   echo "Initializing IPFS..."
   ipfs init
 
+  echo "Configuring IPFS Profile To Server..."
+  ipfs config profile apply server
+
   echo "Confiuring CORS IPFS..."
   ipfs config --json API.HTTPHeaders.Access-Control-Allow-Origin '["*"]'
   ipfs config --json API.HTTPHeaders.Access-Control-Allow-Methods '["PUT", "POST"]'

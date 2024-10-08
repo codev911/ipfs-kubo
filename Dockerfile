@@ -1,12 +1,6 @@
 # Gunakan image dasar dari IPFS Kubo
 FROM ipfs/kubo:latest
 
-# Set environment variables
-ENV IPFS_PROFILE=server
-ENV IPFS_ENABLE_RELAY=true
-ENV IPFS_AUTO_RELAY=true
-ENV IPFS_DISABLE_GC=false
-
 # Salin entrypoint.sh ke dalam container
 COPY entrypoint.sh /entrypoint.sh
 
